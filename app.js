@@ -5,6 +5,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     morgan = require('morgan'),
     compress = require('compression'),
+    cors = require('cors'),
     path = require('path'),
     os = require('os'),
     port = process.env.PORT || 3000;
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === 'development') {
     app.use(compress());
 }
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
