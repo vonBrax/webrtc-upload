@@ -27,21 +27,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, './client')));*/
 
+app.get('/client', (req, res) => {
+    res.send('Client endpoint');
+});
+
 app.get('/', (req, res) => {
-    res.statusCode = 200;
     res.send('Ok');
     //res.end();
 });
 
 app.get('*', (req, res) => {
-    res.statusCode = 200;
     res.send('Ok');
     //res.end();
 });
 
 
 const server = app.listen(port, () => {
-    //console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
 
 const io = require('socket.io')(server);
