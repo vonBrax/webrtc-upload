@@ -29,7 +29,14 @@ app.use(express.static(path.join(__dirname, './client')));*/
 
 app.get('/', (req, res) => {
     res.statusCode = 200;
-    res.end();
+    res.send('Ok');
+    //res.end();
+});
+
+app.get('*', (req, res) => {
+    res.statusCode = 200;
+    res.send('Ok');
+    //res.end();
 });
 
 
